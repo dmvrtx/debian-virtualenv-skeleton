@@ -1,11 +1,23 @@
 #!/bin/bash
-cd /var/lib/<your package>
-source bin/activate
-./bin/pip install -r /usr/share/doc/<your package>/requirements.txt
-cd /var/lib/<your package>/project
-./manage.py collectstatic
-deactivate
-if [ -e /etc/init.d/uwsgi ]; then
-    echo "Reloading uwsgi module"
-    touch /var/lib/<your package>/project/reload
-fi
+case "$1" in
+    configure)
+        cd /var/lib/$DPKG_MAINTSCRIPT_PACKAGE
+        source bin/activate
+        ./bin/pip install -r /usr/share/doc/$DPKG_MAINTSCRIPT_PACKAGE/requirements.txt
+        cd /var/lib/$DPKG_MAINTSCRIPT_PACKAGE/project
+        ./manage.py collectstatic
+        deactivate
+        if [ -e /etc/init.d/uwsgi ]; then
+            echo "Reloading uwsgi module"
+            touch /var/lib//$DPKG_MAINTSCRIPT_PACKAGE/project/reload
+        fi
+        ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+        # Do nothing
+        ;;
+    *)
+
+        echo "Unrecognized postinst argument '$1'"
+        ;;
+esac
