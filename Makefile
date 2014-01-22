@@ -16,8 +16,8 @@ all:
 
 source:
 	# preparing package scripts
-	sed -i -e 's/<your package>/$(PACKAGE)/' debian/*; \
-	sed -i -e 's/<your project>/$(PROJECT)/' debian/*; \
+	sed -i -e 's/<your package>/$(PACKAGE)/' debian/install debian/control debian/conffiles debian/changelog docs/project-uwsgi.ini; \
+	sed -i -e 's/<your project>/$(PROJECT)/' debian/install debian/control debian/conffiles debian/changelog docs/project-uwsgi.ini; \
 	tar -czf $(CURDIR)/../$(PACKAGE)_$(VERSION).orig.tar.gz project debian docs
 	rm -rf $(BUILDIR)
 
