@@ -1,5 +1,14 @@
 #!/bin/bash
-if [ -d /var/lib/$DPKG_MAINTSCRIPT_PACKAGE ]; then
-	echo "Removing project directory"
-	rm -rf /var/lib/$DPKG_MAINTSCRIPT_PACKAGE
-fi
+case "$1" in
+    upgrade)
+        # Do nothing
+    ;;
+
+    *)
+        # on removal we should clean project directory
+        if [ -d /var/lib/$DPKG_MAINTSCRIPT_PACKAGE ]; then
+            echo "Removing project directory"
+            rm -rf /var/lib/$DPKG_MAINTSCRIPT_PACKAGE
+        fi
+    ;;
+esac
