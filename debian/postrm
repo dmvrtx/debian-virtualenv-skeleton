@@ -1,0 +1,5 @@
+#!/bin/bash
+if [ -d /var/lib/$DPKG_MAINTSCRIPT_PACKAGE ]; then
+	echo "Removing project directory"
+	rm -rf /var/lib/$DPKG_MAINTSCRIPT_PACKAGE
+else
