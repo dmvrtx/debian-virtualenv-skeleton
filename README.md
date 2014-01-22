@@ -33,7 +33,7 @@ If it happens that you are using uwsgi then installation script will create `rel
 
 Directory structure
 -------------------
- # `debian` directory contains all the needed initial debian scripts. You should only update `changelog` file here.
+ * `debian` directory contains all the needed initial debian scripts. You should only update `changelog` file here.
  If you want to add custom logic to install scripts see `preinst`, `postinst` or `prerm` files.
- # `docs` contains requiremnts file and example uwsgi configuration for your project
- # `project` is where your django project should be. Example project is created with Django 1.6.1 and has `settings.py` set to import `local_settings.py` which is treated as configuration file (so it would not be rewritten with new installation). If you intend to recreate project, you should take care of updating default `settings.py` with the same logic.
+ * `docs` contains requiremnts file and example uwsgi configuration for your project
+ * `project` is where your django project should be. Example project is created with Django 1.6.1 and has `settings.py` set to import `local_settings.py` which is treated as configuration file (so it would not be rewritten with new installation). If you intend to recreate project, you should take care of updating default `settings.py` with the same logic.
