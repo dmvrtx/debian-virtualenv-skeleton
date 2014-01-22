@@ -1,0 +1,13 @@
+Source: <your package>
+Priority: extra
+Maintainer: Maintainer <maintainer@example.com>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.9.1
+Section: python
+
+Package: <your package>
+Section: python
+Architecture: all
+Depends: ${misc:Depends}, python-setuptools, python-tz
+Suggests: uwsgi, uwsgi-plugin-python
+Description: Django project

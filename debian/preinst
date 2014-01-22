@@ -1,0 +1,19 @@
+#!/bin/bash
+if [ -e /usr/bin/pip ]; then
+	echo "pip already installed"
+else
+	echo "installing pip"
+	/usr/bin/easy_install pip
+fi
+if [ -e /usr/bin/virtualenv ]; then
+	echo "virtualenv already installed"
+else
+	echo "installing virtualenv"
+	/usr/bin/env pip install virtualenv
+fi
+if [ -d /var/lib/<your package> ]; then
+	echo "project directory already exists"
+else
+	echo "creating project directory"
+	/usr/bin/env virtualenv /var/lib/<your package>
+fi

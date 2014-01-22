@@ -1,0 +1,11 @@
+#!/bin/bash
+cd /var/lib/<your package>
+source bin/activate
+./bin/pip install -r /usr/share/doc/<your package>/requirements.txt
+cd /var/lib/<your package>/project
+./manage.py collectstatic
+deactivate
+if [ -e /etc/init.d/uwsgi ]; then
+    echo "Reloading uwsgi module"
+    touch /var/lib/<your package>/project/reload
+fi
