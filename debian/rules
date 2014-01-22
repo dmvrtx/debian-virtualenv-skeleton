@@ -9,5 +9,8 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+# Don't compress .py files
+DEB_COMPRESS_EXCLUDE := .py
+
 %:
-	dh $@
+	dh $@ --with python2
