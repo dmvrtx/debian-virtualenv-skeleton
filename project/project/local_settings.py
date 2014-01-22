@@ -5,9 +5,9 @@ Local settings for the server
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-# Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
+# Database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
