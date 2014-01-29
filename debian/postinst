@@ -4,13 +4,15 @@ case "$1" in
         cd /var/lib/$DPKG_MAINTSCRIPT_PACKAGE
         source bin/activate
         ./bin/pip install -r /usr/share/doc/$DPKG_MAINTSCRIPT_PACKAGE/requirements.txt
-        cd /var/lib/$DPKG_MAINTSCRIPT_PACKAGE/project
-        ./manage.py collectstatic
-        deactivate
-        if [ -e /etc/init.d/uwsgi ]; then
-            echo "Reloading uwsgi module"
-            touch /var/lib//$DPKG_MAINTSCRIPT_PACKAGE/project/reload
+        if [ -e /var/lib/$DPKG_MAINTSCRIPT_PACKAGE/project/<your project>/local_settings.py ]; then
+            cd /var/lib/$DPKG_MAINTSCRIPT_PACKAGE/project
+            ./manage.py collectstatic
+            if [ -e /etc/init.d/uwsgi ]; then
+                echo "Reloading uwsgi module"
+                touch /var/lib//$DPKG_MAINTSCRIPT_PACKAGE/project/reload
+            fi
         fi
+        deactivate
         ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
