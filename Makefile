@@ -25,6 +25,7 @@ install:
 	make source
 
 builddeb:
+	make clean
 	make source
 	# build the package
 	dpkg-buildpackage -i -I -uc -us -rfakeroot
@@ -32,3 +33,4 @@ builddeb:
 clean:
 	rm -rf build/ MANIFEST
 	rm -rf $(CURDIR)/../$(PACKAGE)*.orig.tar.gz
+	find . -name '*.pyc' -delete

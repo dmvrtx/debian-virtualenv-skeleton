@@ -3,7 +3,6 @@ case "$1" in
     configure)
         cd /var/lib/$DPKG_MAINTSCRIPT_PACKAGE
         source bin/activate
-        ./bin/pip install -r /usr/share/doc/$DPKG_MAINTSCRIPT_PACKAGE/requirements.txt
         if [ -e /var/lib/$DPKG_MAINTSCRIPT_PACKAGE/project/<your project>/local_settings.py ]; then
             cd /var/lib/$DPKG_MAINTSCRIPT_PACKAGE/project
             ./manage.py collectstatic

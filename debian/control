@@ -1,13 +1,13 @@
 Source: <your package>
 Priority: extra
 Maintainer: Maintainer <maintainer@example.com>
-Build-Depends: debhelper (>= 7.0.50~)
+Build-Depends: debhelper (>= 7.0.50~), python-setuptools, python-tz, dh-virtualenv
 Standards-Version: 3.9.1
 Section: python
 
 Package: <your package>
 Section: python
 Architecture: all
-Depends: ${misc:Depends}, python-setuptools, python-tz
-Suggests: uwsgi, uwsgi-plugin-python
+Depends: ${python:Depends}, ${misc:Depends}
+Suggests: uwsgi, uwsgi-plugin-python, libapache2-mod-wsgi
 Description: Django project

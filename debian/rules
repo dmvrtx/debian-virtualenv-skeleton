@@ -12,5 +12,8 @@
 # Don't compress .py files
 DEB_COMPRESS_EXCLUDE := .py
 
+# set this to your desired virtualenv's location (package name will be added automatically)
+export DH_VIRTUALENV_INSTALL_ROOT=/var/lib
+
 %:
-	dh $@ --with python2
+	dh $@ --with python-virtualenv

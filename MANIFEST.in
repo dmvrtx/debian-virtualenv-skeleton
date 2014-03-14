@@ -1,0 +1,2 @@
+recursive-include project *
+include requirements.txt

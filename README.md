@@ -9,6 +9,8 @@ What do we have here?
 This is a collection of a debian control files with a Makefile script that helps you to create debian packages
 for your python projects (especially Django) which are distributed in a separate virtualenv's.
 
+This script uses brilliant [dh-virtualenv](https://github.com/spotify/dh-virtualenv) written by spotify team.
+
 How to use it?
 --------------
 
@@ -21,7 +23,7 @@ Then you should update `debian/changelog` with the information about changes in 
 After that type:
 
    make builddeb
-   
+
 This should update control files in `debian` directory with correct project and package name and start the process of packaging. If it is successfull you should see your brand new package in the parent directory.
 
 What should it do?
@@ -33,7 +35,8 @@ If it happens that you are using uwsgi then installation script will create `rel
 
 Directory structure
 -------------------
+ * root directory contains setup.py and requirements file
  * `debian` directory contains all the needed initial debian scripts. You should only update `changelog` file here.
  If you want to add custom logic to install scripts see `preinst`, `postinst` or `prerm` files.
- * `docs` contains requiremnts file and example uwsgi configuration for your project
+ * `docs` contains example uwsgi and Apache2 WSGI configuration for your project
  * `project` is where your django project should be. Example project is created with Django 1.6.1 and has `settings.py` set to import `local_settings.py` which is treated as configuration file (so it would not be rewritten with new installation). If you intend to recreate project, you should take care of updating default `settings.py` with the same logic.
