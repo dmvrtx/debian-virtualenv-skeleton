@@ -14,7 +14,7 @@ setup(
     author_email='developer@example.com',
     packages=[],
     license='BSD',
-    description='Autopayment Project',
+    description='Project description',
     long_description=long_description,
     classifiers=[
         'Environment :: Web Environment',

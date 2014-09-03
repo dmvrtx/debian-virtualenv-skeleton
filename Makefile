@@ -16,8 +16,8 @@ all:
 
 source:
 	# preparing package scripts
-	sed -i -e 's/<your package>/$(PACKAGE)/' debian/postinst debian/install debian/control debian/conffiles debian/changelog docs/project-uwsgi.ini docs/wsgi.conf; \
-	sed -i -e 's/<your project>/$(PROJECT)/' debian/postinst debian/install debian/control debian/conffiles debian/changelog docs/project-uwsgi.ini docs/wsgi.conf; \
+	sed -i -e 's/<your package>/$(PACKAGE)/' setup.py debian/postinst debian/install debian/control debian/conffiles debian/changelog docs/project-uwsgi.ini docs/wsgi.conf; \
+	sed -i -e 's/<your project>/$(PROJECT)/' setup.py debian/postinst debian/install debian/control debian/conffiles debian/changelog docs/project-uwsgi.ini docs/wsgi.conf; \
 	tar -czf $(CURDIR)/../$(PACKAGE)_$(VERSION).orig.tar.gz project debian docs
 	rm -rf $(BUILDIR)
 
